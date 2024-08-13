@@ -1,11 +1,14 @@
 Event:
-  MinPlayers: 4 #Minimum amount of players to start the event
+  MinPlayers: 4 #Minimum amount of players to start the event (Suggested 4 or more)
   #Default tp location
   World: "world"
   X: 0
   Y: 100
   Z: 0
   GracePeriod:
+    Kill: true #If enabled, if you player did not place a beacon, they will die.
+
+    #Time:
     Time: 180 #3 minutes
     Invisibility_Time: 180 #1 minute
     #Announces when the grace period ends (Peridiocally)
@@ -41,6 +44,52 @@ Event:
       Y: 100
       Z: 0
 
+Repeat_Commands:
+  Enabled: true
+  Time: 1800 #30 minutes - Duration of when it runs the commands
+  Active_Durations:
+    - 1800
+    - 1200
+    - 600
+    - 300
+    - 60
+    - 30
+    - 10
+    - 5
+    - 4
+    - 3
+    - 2
+    - 1
+  Commands:
+    #Update say to the broadcast command for your server!
+    1800:
+      - "say %prefix% &a30 minutes left! Use &f/hoh join &ato join the event!"
+    1200:
+      - "say %prefix% &a20 minutes left!"
+      - "say Use &f/hoh join &ato join the event!"
+    600:
+      - "say ------------------------------------"
+      - "say %prefix% &a10 minutes left!"
+      - "say Use &f/hoh join &ato join the event!"
+      - "say ------------------------------------"
+    300:
+      - "say %prefix% &a5 minutes left! Use &f/hoh join &ato join the event!"
+    60:
+      - "say %prefix% &a1 minute left! Use &f/hoh join &ato join the event!"
+    30:
+      - "say %prefix% &a30 seconds left! Use &f/hoh join &ato join the event!"
+    10:
+      - "say %prefix% &a10 seconds left! Use &f/hoh join &ato join the event!"
+    5:
+      - "say %prefix% &a5 seconds left! Use &f/hoh join &ato join the event!"
+    4:
+      - "say %prefix% &a4 seconds left! Use &f/hoh join &ato join the event!"
+    3:
+      - "say %prefix% &a3 seconds left! Use &f/hoh join &ato join the event!"
+    2:
+      - "say %prefix% &a2 seconds left! Use &f/hoh join &ato join the event!"
+    1:
+      - "say %prefix% &a1 second left! Use &f/hoh join &ato join the event!"
 Spawn:
   World: "world"
   X: 0

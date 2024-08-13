@@ -6,6 +6,7 @@ import aDragz.hideOrHunt.Main;
 import aDragz.hideOrHunt.Commands.Admin.startEvent;
 import aDragz.hideOrHunt.Events.durationEvent.Beacon.beaconLocations;
 import aDragz.hideOrHunt.Events.durationEvent.playerEvents.grace.cooldown;
+import aDragz.hideOrHunt.Events.repeatEvents.repeatCommands;
 import aDragz.hideOrHunt.Events.startingEvent.Player.joinedPlayers;
 
 public class endEvent {
@@ -28,5 +29,8 @@ public class endEvent {
         startEvent.eventStarted = false;
         joinedPlayers.players.clear();
         beaconLocations.beaconLocations.clear();
+
+        //Start the "event starts in" countdown
+        repeatCommands.startCooldown();
     }
 }

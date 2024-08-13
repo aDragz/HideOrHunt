@@ -1,6 +1,7 @@
 package aDragz.hideOrHunt.Commands.Admin;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import aDragz.hideOrHunt.Main;
@@ -21,22 +22,28 @@ public class startEvent {
 
     //This command will be used to start the event
     //Command = /hideorhunt start
-    public static void start(Player admin) {
-        //Check if the event is already started
-        if (eventStarted) {
-            admin.sendMessage(config.getString("Messages.Admin.already_started")
-                    .replaceAll("%prefix%", config.getString("Messages.Prefix"))
-                    .replaceAll("&", "§"));
-            return;
-        }
+    public static void start(CommandSender admin) {
+        //Check if the sender is console
+        if (!(admin instanceof Player)) {
+            if (!startCooldown(admin))
+                return;
+        } else {
+            //Check if the event is already started
+            if (eventStarted) {
+                admin.sendMessage(config.getString("Messages.Admin.already_started")
+                        .replaceAll("%prefix%", config.getString("Messages.Prefix"))
+                        .replaceAll("&", "§"));
+                return;
+            }
 
-        //Check if the event has enough players
+            //Check if the event has enough players
 
-        if (joinedPlayers.players.size() <= minPlayers) {
-            admin.sendMessage(config.getString("Messages.Admin.not_enough_players")
-                    .replaceAll("%prefix%", config.getString("Messages.Prefix"))
-                    .replaceAll("&", "§"));
-            return;
+            if (joinedPlayers.players.size() <= minPlayers) {
+                admin.sendMessage(config.getString("Messages.Admin.not_enough_players")
+                        .replaceAll("%prefix%", config.getString("Messages.Prefix"))
+                        .replaceAll("&", "§"));
+                return;
+            }
         }
 
         //Start the event
@@ -50,6 +57,9 @@ public class startEvent {
 
         //Teleport all players to the event location
         tpToEvent.teleport();
+
+        //Turn off countdown for the "Event Starts in" message
+        Bukkit.getScheduler().cancelTasks(plugin);
 
         //Start Cooldown
         cooldown.startCooldown();
@@ -66,5 +76,26 @@ public class startEvent {
                 giveBeacon.givePlayerBeacon(onlinePlayer);
             }
         }
+    }
+
+    @SuppressWarnings("deprecation")
+    public static boolean startCooldown(CommandSender sender) {
+        if (eventStarted) {
+            Bukkit.broadcastMessage(config.getString("Messages.Admin.already_started")
+                    .replaceAll("%prefix%", config.getString("Messages.Prefix"))
+                    .replaceAll("&", "§"));
+            return false;
+        }
+
+        //Check if the event has enough players
+
+        if (joinedPlayers.players.size() <= minPlayers) {
+            Bukkit.broadcastMessage(config.getString("Messages.Admin.not_enough_players")
+                    .replaceAll("%prefix%", config.getString("Messages.Prefix"))
+                    .replaceAll("&", "§"));
+            return false;
+        }
+
+        return true;
     }
 }

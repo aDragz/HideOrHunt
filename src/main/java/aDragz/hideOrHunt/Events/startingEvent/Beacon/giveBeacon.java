@@ -43,14 +43,10 @@ public class giveBeacon {
         //Set Lore
 
         //Add &(Colour) to the lore
-        List<String> colorLore = new ArrayList<String>();
-        itemLore.forEach(Lore -> {
-            colorLore.add(Lore.replaceAll("%player%", player.getName())
-                .replaceAll("&", "§"));
-        });
+        itemLore.replaceAll(lore -> lore.replaceAll("%prefix%", config.getString("Messages.Prefix")).replaceAll("&", "§").replaceAll("%player%", player.getName()));
 
         //Set Coloured Lore
-        meta.setLore(colorLore);
+        meta.setLore(itemLore);
 
         //Set final meta
         beacon.setItemMeta(meta);

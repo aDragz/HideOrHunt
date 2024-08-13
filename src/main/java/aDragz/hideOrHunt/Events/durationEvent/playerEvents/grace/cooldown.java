@@ -72,14 +72,17 @@ public class cooldown {
                     Bukkit.broadcastMessage(config.getString("Messages.Event.grace_period_end")
                             .replaceAll("%prefix%", config.getString("Messages.Prefix"))
                             .replaceAll("&", "§"));
-                    
+
                     //Check who did not place beacon, and kill them
-                    joinedPlayers.players.forEach(player -> {
-                        if (!beaconLocations.beaconLocations.containsKey(player)) {
-                            //kill player
-                            player.setHealth(0);
-                        }
-                    });
+                    //Check to see if it's even enabled first
+                    if (config.getBoolean("Event.GracePeriod.Kill")) {
+                        joinedPlayers.players.forEach(player -> {
+                            if (!beaconLocations.beaconLocations.containsKey(player)) {
+                                // kill player
+                                player.setHealth(0);
+                            }
+                        });
+                    }
 
                     //Turn grace period off
                     gracePeriod.gracePeriodStarted = false;

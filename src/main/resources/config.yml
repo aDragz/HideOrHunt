@@ -1,0 +1,87 @@
+Event:
+  MinPlayers: 4 #Minimum amount of players to start the event
+  #Default tp location
+  World: "world"
+  X: 0
+  Y: 100
+  Z: 0
+  GracePeriod: #work on
+    Time: 180 #3 minutes
+    Invisibility_Time: 180 #1 minute
+    #Announces when the grace period ends (Peridiocally)
+    Duration_Announcements:
+      - 180
+      - 120
+      - 60
+      - 30
+      - 10
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+  Game_Time: #Duration of the event (total time) 
+    Time: 1080 #18 minutes (15 minutes + 3 minutes grace period)
+    #Announces when the event ends (Peridiocally)
+    Duration_Announcements:
+      - 900
+      - 600
+      - 300
+      - 60
+      - 30
+      - 10
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+    Tp: #Location to teleport players to finish the event in a ffa
+      World: "world"
+      X: 0
+      Y: 100
+      Z: 0
+
+Spawn:
+  World: "world"
+  X: 0
+  Y: 100
+  Z: 0
+
+Beacon:
+  Item_Name: "&f%player%'s &9Beacon"
+  Item_Lore:
+    - "&f%player%'s &9Beacon"
+    - ""
+    - "&aGood Luck!"
+
+Messages:
+  Prefix: "&8[&9HideOrHunt&8]"
+  Admin:
+    already_started: "%prefix% &cThe event has already started!"
+    amount_in_event: "%prefix% &cThere are currently %amount% players in the event!"
+    no_permission: "%prefix% &cYou do not have permission to do that!"
+    not_enough_players: "%prefix% &cThere are not enough players to start the event!"
+    amount_in_event_beacon: "%prefix% &cThere are currently %amount% players in the event!"
+    list_beacon: "%prefix% &8[&aBeacon&8] &f%player%"
+    list_no_beacon: "%prefix% &8[&cBeacon&8] &f%player%"
+  Event:
+    admin_join: "%prefix% &a%player% has joined the event!"
+    admin_leave: "%prefix% &c%player% has left the event!"
+    join: "%prefix% &aYou have joined the event!"
+    leave: "%prefix% &cYou have left the event!"
+    not_joined: "%prefix% &cYou have not joined the event!"
+    already_joined: "%prefix% &cYou have already joined the event!"
+    already_started: "%prefix% &cThe event has already started!"
+    not_player: "%prefix% &4You must be a &fplayer &4to join/leave the event"
+    start: "%prefix% &aThe event has started!"
+    grace_period_end_in_minutes: "%prefix% &cThe grace period will end in %minutes% minutes and %seconds% seconds!"
+    grace_period_end_in: "%prefix% &cThe grace period will end in %seconds% seconds!"
+    grace_period_end: "%prefix% &cThe grace period has ended!"
+    game_period_end_in_minutes: "%prefix% &cThe ffa will start in %minutes% minutes and %seconds% seconds!"
+    game_period_end_in: "%prefix% &cThe ffa will start in %seconds% seconds!"
+    unknown_command: "%prefix% &cUnknown command!"
+    beacon_grace: "%prefix% &cGrace period is still active!"
+    beacon_destroyed: "%prefix% &c%player%'s beacon has been destroyed!"
+    beacon_destroyed_player: "%prefix% &cYour beacon has been destroyed by %player%!"
+    player_kill_beacon: "%prefix% &cYou must destroy %player%'s beacon to kill them!"
+    player_kill_no_beacon: "%prefix% &cYou have killed %player%!"

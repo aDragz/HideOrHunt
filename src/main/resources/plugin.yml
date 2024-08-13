@@ -1,0 +1,12 @@
+name: HideOrHunt
+version: '1.0.0-Release'
+main: aDragz.hideOrHunt.Main
+api-version: '1.21'
+prefix: [ HideOrHunt ]
+authors: [ aDragz ]
+description: Hide or Hunt is a minigame where you can hide or hunt players.
+website: https://prisoncore.dev
+
+commands:
+  hideorhunt:
+    aliases: [ hoh ]

@@ -85,3 +85,4 @@ Messages:
     beacon_destroyed_player: "%prefix% &cYour beacon has been destroyed by %player%!"
     player_kill_beacon: "%prefix% &cYou must destroy %player%'s beacon to kill them!"
     player_kill_no_beacon: "%prefix% &cYou have killed %player%!"
+    player_kill_win: "%prefix% &a%player% has won the event!"

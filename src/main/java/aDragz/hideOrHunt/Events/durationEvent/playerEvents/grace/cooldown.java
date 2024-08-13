@@ -38,7 +38,7 @@ public class cooldown {
 
         cooldownTime = cooldownLength;
         cooldownTotalTime = cooldownTotalLength;
-
+        
         //Create cooldown for 60 seconds
         Bukkit.getScheduler().runTaskTimer(plugin, new Runnable() {
             @SuppressWarnings("deprecation")

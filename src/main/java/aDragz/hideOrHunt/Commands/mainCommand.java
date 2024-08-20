@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 
 import aDragz.hideOrHunt.Main;
 import aDragz.hideOrHunt.Commands.Admin.amountEvent;
+import aDragz.hideOrHunt.Commands.Admin.endEventCommand;
 import aDragz.hideOrHunt.Commands.Admin.listEvent;
 import aDragz.hideOrHunt.Commands.Admin.startEvent;
 import aDragz.hideOrHunt.Commands.Player.joinEvent;
@@ -42,6 +43,16 @@ public class mainCommand implements CommandExecutor {
 
                         Player playerStart = (Player) sender;
                         startEvent.start(playerStart);
+                        break;
+                    case ("end"):
+                        if (!sender.hasPermission("HideOrHunt.admin.end")) {
+                            sender.sendMessage(config.getString("Messages.Admin.no_permission")
+                                    .replaceAll("%prefix%", config.getString("Messages.Prefix"))
+                                    .replaceAll("&", "§"));
+                            return true;
+                        }
+
+                        endEventCommand.forceStop();
                         break;
                     case ("amount"):
                         if (!sender.hasPermission("HideOrHunt.admin.amount")) {

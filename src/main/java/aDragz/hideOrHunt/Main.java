@@ -13,6 +13,7 @@ import aDragz.hideOrHunt.Events.repeatEvents.repeatCommands;
 
 public final class Main extends JavaPlugin {
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onEnable() {
 

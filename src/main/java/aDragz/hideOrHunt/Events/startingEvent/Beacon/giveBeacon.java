@@ -1,6 +1,5 @@
 package aDragz.hideOrHunt.Events.startingEvent.Beacon;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;

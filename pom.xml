@@ -6,7 +6,7 @@
 
     <groupId>aDragz</groupId>
     <artifactId>HideOrHunt</artifactId>
-    <version>1.0.0-Release</version>
+    <version>1.0.1-Release</version>
     <packaging>jar</packaging>
 
     <name>HideOrHunt</name>

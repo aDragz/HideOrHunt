@@ -22,6 +22,10 @@ public class mainTab implements TabCompleter{
                         tabList.add("start");
                     }
 
+                    if (sender.hasPermission("HideOrHunt.admin.end")) {
+                        tabList.add("end");
+                    }
+
                     if (sender.hasPermission("HideOrHunt.admin.amount")) {
                         tabList.add("amount");
                     }

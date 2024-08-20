@@ -13,7 +13,8 @@ public class endEvent {
     
     static Main plugin = Main.getPlugin(Main.class);
 
-    public static void stop() {
+    @SuppressWarnings("deprecation")
+    public static void stop(Boolean forced) {
         //Remove beacons
         beaconLocations.beaconLocations.forEach((player, location) -> {
             location.getBlock().setType(org.bukkit.Material.AIR);
@@ -32,5 +33,21 @@ public class endEvent {
 
         //Start the "event starts in" countdown
         repeatCommands.startCooldown();
+
+        Bukkit.broadcastMessage(plugin.getConfig().getString("Messages.Event.end")
+                    .replaceAll("%prefix%", plugin.getConfig().getString("Messages.Prefix"))
+                    .replaceAll("&", "§"));
+
+        //If forced, broadcast message
+        if (forced) {
+            //Grab all players, and check if they have permission to see the message on the forced end
+            Bukkit.getOnlinePlayers().forEach(player -> {
+                if (player.hasPermission("HideOrHunt.event.end.message")) {
+                    player.sendMessage(plugin.getConfig().getString("Messages.Event.force_end")
+                            .replaceAll("%prefix%", plugin.getConfig().getString("Messages.Prefix"))
+                            .replaceAll("&", "§"));
+                }
+            });
+        }
     }
 }

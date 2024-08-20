@@ -10,12 +10,14 @@ Simple Hide or Hunt Spigot plugin
   * join
   * leave
   * start
+  * end
   * amount
   * list
 
 ## Permissions - Commands:
 * HideOrHunt.admin
   * HideOrHunt.admin.start
+  * HideOrHunt.admin.end
   * HideOrHunt.admin.amount
   * HideOrHunt.admin.list
 
@@ -23,6 +25,7 @@ Simple Hide or Hunt Spigot plugin
 * HideOrHunt.admin
   * HideOrHunt.admin.join
   * HideOrHunt.admin.leave
+  * HideOrHunt.event.end.message
 
 ## Compile Plugin:
 

@@ -62,7 +62,7 @@ public class playerKillEvent implements Listener {
                             .replaceAll("%player%", joinedPlayers.players.get(0).getName())
                             .replaceAll("&", "§"));
 
-                    endEvent.stop();
+                    endEvent.stop(false);
                 }
             }
         }
